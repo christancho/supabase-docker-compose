@@ -452,8 +452,6 @@ services:
     container_name: supabase-vector
     image: timberio/vector:0.28.1-alpine
     restart: unless-stopped
-    PGID: "${PGID}"
-    PUID: "${PUID}"
     volumes:
       - ${MAIN_DIR}/volumes/logs/vector.yml:/etc/vector/vector.yml:ro,z
       - ${DOCKER_SOCKET_LOCATION}:/var/run/docker.sock:ro,z
