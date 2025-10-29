@@ -360,9 +360,10 @@ services:
           "curl",
           "http://localhost:4000/health"
         ]
-      timeout: 5s
-      interval: 5s
-      retries: 10
+      timeout: 10s        # Double the timeout
+      interval: 15s       # Check less frequently
+      retries: 20         # More attempts before failing
+      start_period: 60s   # Grace period for startup
     depends_on:
       db:
         # Disable this if you are using an external Postgres database
